@@ -1,31 +1,30 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 class Solution {
-public:
-    void rotateArrayByOne(vector<int>& nums) {
-        // Store the first element in a temporary variable
-        int temp = nums[0];
-        
-        // Shift elements to the left
-        for (int i = 1; i < nums.size(); ++i) {
-            nums[i - 1] = nums[i];
-        }
+    public:
+    void rotateArrayByOne(vector<int> & a, int n) {
+        int temp = a[0];
 
-        // Place the first element at the end
-        nums[nums.size() - 1] = temp;
+        for (int i = 1; i < n; i++) {
+            a[i-1] = a[i] ;
+        }
+        a[n - 1] = temp ;
+    
     }
 };
 
-int main() {
-    Solution solution;
-    vector<int> nums = {1, 2, 3, 4, 5};
+int main () {
 
-    solution.rotateArrayByOne(nums);
+    Solution sol;
 
-    for (int num : nums) {
-        cout << num << " "; // Output the rotated array
-    }
+    vector<int> a = {1,2,3,4};
+    int n = a.size();
 
-    return 0;
+sol.rotateArrayByOne(a,n);
+
+for (int x : a) {
+    cout << x << " ";
+}
+return 0;
 }
